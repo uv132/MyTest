@@ -1,4 +1,4 @@
-namespace MyTest
+namespace WebApplication2
 {
     public class Program
     {
