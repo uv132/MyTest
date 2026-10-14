@@ -1,4 +1,7 @@
-namespace WebApplication2
+using Microsoft.EntityFrameworkCore;
+using MyTest.Models;
+
+namespace MyTest
 {
     public class Program
     {
@@ -8,6 +11,11 @@ namespace WebApplication2
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // Register AppDbContext with connection string from configuration
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(connectionString));
 
             var app = builder.Build();
 
