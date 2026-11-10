@@ -10,6 +10,7 @@
 
         // Navigation property to School
         public School School { get; set; }
+        public HomeTeacher HomeTeacher { get; set; }
 
     }
 }

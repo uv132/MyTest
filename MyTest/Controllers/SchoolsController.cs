@@ -36,6 +36,24 @@ public class SchoolsController : Controller
         return View(school);
     }
 
+    public async Task<IActionResult> WithStudents(int? schoolid)
+    {
+        if (schoolid == null)
+        {
+            return NotFound();
+        }
+
+        var school = await _context.School
+            .Include(s => s.Students) // השורה הזו מביאה את הרשומות המקושרות
+            .FirstOrDefaultAsync(m => m.SchoolId == schoolid);
+
+        if (school == null)
+        {
+            return NotFound();
+        }
+
+        return View(school);
+    }
     // GET: SCHOOLS/Create
     public IActionResult Create()
     {
@@ -110,15 +128,16 @@ public class SchoolsController : Controller
     }
 
     // GET: SCHOOLS/Delete/5
-    public async Task<IActionResult> Delete(int? schoolid)
+    // GET: SCHOOLS/Delete/5
+    public async Task<IActionResult> Delete(int? id)
     {
-        if (schoolid == null)
+        if (id == null)
         {
             return NotFound();
         }
 
         var school = await _context.School
-            .FirstOrDefaultAsync(m => m.SchoolId == schoolid);
+            .FirstOrDefaultAsync(m => m.SchoolId == id);
         if (school == null)
         {
             return NotFound();
@@ -130,9 +149,9 @@ public class SchoolsController : Controller
     // POST: SCHOOLS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int? schoolid)
+    public async Task<IActionResult> DeleteConfirmed(int? id)
     {
-        var school = await _context.School.FindAsync(schoolid);
+        var school = await _context.School.FindAsync(id);
         if (school != null)
         {
             _context.School.Remove(school);

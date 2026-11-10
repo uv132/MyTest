@@ -1,31 +1,327 @@
-html {
-  font-size: 14px;
-}
+/* =========================================
+   September Sun Aesthetic - Multi-Section Style
+   ========================================= */
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600&display=swap');
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+/* פלטת הצבעים המדויקת שנשאבה מהתמונה */
+:root {
+    --candle-pink: #F8E5E7;
+    --dusty-rose: #DDA5B0;
+    --deep-berry: #893043;
+    --olive-green: #9E9D7C;
+    --cream-sand: #F7F3EE;
+    --warm-tan: #D4B69B;
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--candle-pink);
+    color: #4A2E35;
+    margin: 0;
+    padding: 0;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* טיפוגרפיה בסגנון המותג */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+h1 {
+    color: var(--deep-berry);
+    font-size: 2.5em;
+    text-align: center;
+    margin: 40px 0 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
+
+/* =========================================
+   1. כרטיס בית הספר - בלוק ברקע ורוד מעושן
+   ========================================= */
+.parent-card {
+    background-color: var(--dusty-rose);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(137, 48, 67, 0.12);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+}
+
+    .parent-card h2 {
+        color: var(--deep-berry);
+        font-size: 2.2em;
+        margin-top: 0;
+    }
+
+/* שדות פנימיים - סגנון קרם-חול נקי */
+.parent-fields {
+    display: flex;
+    gap: 40px;
+    margin-top: 25px;
+    background-color: var(--cream-sand);
+    padding: 20px 30px;
+    border-radius: 14px;
+    color: var(--deep-berry);
+    border: 1px solid var(--warm-tan);
+}
+
+.field-label {
+    font-weight: 600;
+    color: var(--deep-berry);
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* =========================================
+   2. אזור התלמידים - סגנון ירוק-זית מעושן
+   ========================================= */
+.children-section {
+    background-color: var(--olive-green);
+    padding: 40px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+    .children-section h3 {
+        color: #FFFFFF;
+        font-size: 1.9em;
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+
+/* תגית המספר - בורדו דובדבן עמוק */
+.count-badge {
+    background-color: var(--deep-berry);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.7em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    vertical-align: middle;
+    margin-left: 12px;
+}
+
+/* =========================================
+   3. טבלה עם רקע פסים (בדיוק כמו הבלוק בתמונה)
+   ========================================= */
+.table, .data-table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    /* רקע פסים ורוד-לבן בהשראת התמונה */
+    background: repeating-linear-gradient( 45deg, #FFFFFF, #FFFFFF 15px, var(--candle-pink) 15px, var(--candle-pink) 30px );
+    border: 2px solid var(--dusty-rose);
+    margin-top: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+    /* ראש הטבלה - בורדו עמוק */
+    .table th, .data-table th {
+        background-color: var(--deep-berry);
+        color: #FFFFFF;
+        padding: 18px 24px;
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+        font-size: 1.05em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: none;
+    }
+
+    .table td, .data-table td {
+        padding: 18px 24px;
+        vertical-align: middle;
+        border-bottom: 1px solid var(--dusty-rose);
+        color: #4A2E35;
+        font-size: 0.95em;
+        font-weight: 500;
+        background-color: rgba(255, 255, 255, 0.85); /* שקיפות עדינה שרואים את הפסים */
+    }
+
+    /* אפקט ריחוף - רקע ירוק זית רך */
+    .table tbody tr:hover td, .data-table tbody tr:hover td {
+        background-color: #EFEFE4;
+    }
+
+    /* =========================================
+   4. כפתורים מעוצבים בסגנון תגיות מותג
+   ========================================= */
+    .table td a, .btn-details {
+        display: inline-block;
+        padding: 10px 22px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 0.8em;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 3px;
+        transition: all 0.25s ease;
+    }
+
+        /* כפתור With Students / Details - בורדו בולט */
+        .table td a[href*="WithStudents"], .btn-details {
+            background-color: var(--deep-berry);
+            color: #FFFFFF !important;
+            border: 1px solid var(--deep-berry);
+        }
+
+            .table td a[href*="WithStudents"]:hover, .btn-details:hover {
+                background-color: var(--dusty-rose);
+                border-color: var(--dusty-rose);
+                transform: translateY(-2px);
+            }
+
+    /* Edit - כ
+/* =========================================
+   עיצוב כפתורי דף הבית (Index) להתאמה מלאה
+   ========================================= */
+
+    /* כפתורי הפעולות בטבלה: Edit, Details, Delete, With Students */
+    .table td a {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 0.85em;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin: 3px;
+        transition: all 0.25s ease;
+    }
+
+        /* Edit - ירוק זית מעושן */
+        .table td a[href*="Edit"] {
+            background-color: #9E9D7C;
+            color: #FFFFFF !important;
+            border: 1px solid #9E9D7C;
+        }
+
+            .table td a[href*="Edit"]:hover {
+                background-color: #848363;
+                border-color: #848363;
+                transform: translateY(-2px);
+            }
+
+        /* Details - ורוד מעושן */
+        .table td a[href*="Details"] {
+            background-color: #DDA5B0;
+            color: #FFFFFF !important;
+            border: 1px solid #DDA5B0;
+        }
+
+            .table td a[href*="Details"]:hover {
+                background-color: #C88D99;
+                border-color: #C88D99;
+                transform: translateY(-2px);
+            }
+
+        /* Delete - קרם-חול עם מסגרת */
+        .table td a[href*="Delete"] {
+            background-color: #F7F3EE;
+            color: #893043 !important;
+            border: 1px solid #D4B69B;
+        }
+
+            .table td a[href*="Delete"]:hover {
+                background-color: #D4B69B;
+                color: #FFFFFF !important;
+                transform: translateY(-2px);
+            }
+
+        /* With Students - בורדו דובדבן בולט */
+        .table td a[href*="WithStudents"] {
+            background-color: #893043;
+            color: #FFFFFF !important;
+            border: 1px solid #893043;
+            box-shadow: 0 4px 10px rgba(137, 48, 67, 0.2);
+        }
+
+            .table td a[href*="WithStudents"]:hover {
+                background-color: #6D2434;
+                border-color: #6D2434;
+                transform: translateY(-2px);
+            }
+
+/* כפתור Create New בראש הדף */
+p a[href$="Create"] {
+    display: inline-block;
+    background-color: #893043;
+    color: #FFFFFF !important;
+    padding: 12px 26px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 16px rgba(137, 48, 67, 0.2);
+    transition: all 0.25s ease;
+}
+
+    p a[href$="Create"]:hover {
+        background-color: #DDA5B0;
+        transform: translateY(-2px);
+    }
+/* =========================================
+   עיצוב סרגל הניווט (Navbar) והתפריט הראשי
+   ========================================= */
+
+/* רקע הסרגל העליון */
+.navbar, header nav {
+    background-color: var(--deep-berry) !important;
+    border-bottom: 3px solid var(--dusty-rose);
+    box-shadow: 0 4px 15px rgba(137, 48, 67, 0.2);
+}
+
+/* שם האתר / לוגו בתפריט העליון */
+.navbar-brand {
+    font-family: 'Playfair Display', serif !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 1.4em !important;
+    letter-spacing: 1px;
+}
+
+/* קישורי התפריט (Home, Privacy וכו') */
+.navbar-nav .nav-link, nav a {
+    color: var(--candle-pink) !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.95em;
+    padding: 8px 16px !important;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+    /* אפקט מעבר עכבר על קישורי התפריט */
+    .navbar-nav .nav-link:hover, nav a:hover {
+        color: #FFFFFF !important;
+        background-color: var(--dusty-rose);
+    }
+
+/* כפתורים כלליים של המערכת (btn-primary, btn-secondary וכד') */
+.btn, .btn-primary {
+    background-color: var(--deep-berry) !important;
+    border-color: var(--deep-berry) !important;
+    color: #FFFFFF !important;
+    border-radius: 8px !important;
+    font-weight: 600;
+    padding: 8px 20px;
+    transition: all 0.25s ease;
+}
+
+    .btn:hover, .btn-primary:hover {
+        background-color: var(--dusty-rose) !important;
+        border-color: var(--dusty-rose) !important;
+        transform: translateY(-2px);
+    }
